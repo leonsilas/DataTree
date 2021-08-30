@@ -6,7 +6,7 @@ public class DataTree {
         String url = "C:/Users/nirok/Documents/School/Test Folder";
         listFiles(url);
 
-        
+       // Node root = new Node(file);
 
     }// End of main
 
