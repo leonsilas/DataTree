@@ -1,25 +1,35 @@
 import java.io.File;
 
 public class DataTree {
-
     public static void main(String[] args) {
-        DataTree tree = new DataTree();
-        
-        // Create file system
-        File mainFolder = new File("C:/Users/Sern/Documents/School Work/2021-2022/Fall2021");
+        // Setup
+        String url = "C:/Users/nirok/Documents/School/Test Folder";
+        listFiles(url);
 
-        // Read files from a folder
+        
+
+    }// End of main
+
+    // Recursion to list files in folders
+    public static void listFiles(String url) {
+        // Create file system
+        File mainFolder = new File(url);
         File[] folderFiles = mainFolder.listFiles();
 
-        // Loop through the files
-        for (File file : folderFiles) {
+        // Loop through the array
+        if (folderFiles != null && folderFiles.length > 0){
+            for (File file : folderFiles) {
 
-            // Check if the file is a folder
-            if (file.isDirectory()) {
-                System.out.println("Folder: " + file.getName());
+                // Checks if file is a folder (recursion)
+                if (file.isDirectory()) {
+                    System.out.println("Folder: " + file.getName() + "\n\t");
+                    listFiles(file.getAbsolutePath());
+                }   
+                // Base case
+                else 
+                    System.out.println("File: " + file.getName());
+        
             }
         }
-
-    }//end of main
-
-}//end of DataTree
+    }// End of listFiles 
+}// End of DataTree
