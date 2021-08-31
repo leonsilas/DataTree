@@ -1,35 +1,14 @@
-import java.io.File;
+// Project Notes
+// I believe this to be an incomplete and buggy implementation.  While it does work, it is not ideal and should be fixed in the future.
 
 public class DataTree {
     public static void main(String[] args) {
         // Setup
-        String url = "C:/Users/nirok/Documents/School/Test Folder";
-        listFiles(url);
-
-       // Node root = new Node(file);
+        String url = "C:/Users/Sern/Documents/School Work/2021-2022/Spring2022"; // Change this to your directory
+        Tree mainTree = new Tree(url);
+        System.out.println("Printing out file system...\n");
+        mainTree.printTree(url);
 
     }// End of main
-
-    // Recursion to list files in folders
-    public static void listFiles(String url) {
-        // Create file system
-        File mainFolder = new File(url);
-        File[] folderFiles = mainFolder.listFiles();
-
-        // Loop through the array
-        if (folderFiles != null && folderFiles.length > 0){
-            for (File file : folderFiles) {
-
-                // Checks if file is a folder (recursion)
-                if (file.isDirectory()) {
-                    System.out.println("Folder: " + file.getName() + "\n\t");
-                    listFiles(file.getAbsolutePath());
-                }   
-                // Base case
-                else 
-                    System.out.println("File: " + file.getName());
         
-            }
-        }
-    }// End of listFiles 
 }// End of DataTree
